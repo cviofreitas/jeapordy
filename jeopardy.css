@@ -1,0 +1,196 @@
+/* background: rgb(1, 22, 56) */
+/* board: rgb(136,162,170) */
+/* fonts: rgb(252, 244,238) */
+/* graycolor: rgb(54,65,86) */
+/* redcolor: rgb(223,41,53) */
+
+body {
+    background-color: rgb(1, 22, 56);
+    padding: 6vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+@keyframes load-board {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>button {
+    font-size: 1.2rem;
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    background-color: rgb(252, 244, 238);
+    border: none;
+    padding: 10px 20px 10px 20px;
+
+}
+
+header>button:hover {
+    background: rgb(210, 208, 208);
+}
+
+@keyframes hide-spinner {
+    from {
+        opacity: 1;
+    }
+}
+
+#spin-container {
+    animation: hide-spinner 4000ms;
+    opacity: 0;
+    color: white;
+    height: 50px;
+    font-size: 40px;
+    position: absolute;
+    z-index: -1;
+    top: 40%;
+    left: 50%;
+    pointer-events: none;
+}
+
+h1 {
+    color: white;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+#jeopardy {
+    text-align: center;
+    /* height: 600px; */
+}
+
+thead {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+th {
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    border: 1px solid rgb(1, 22, 56);
+    height: 50px;
+    background-color: rgb(54, 65, 86);
+}
+
+tr {
+    animation: load-board 1000ms;
+    border: 1px solid white;
+    padding-top: 300px;
+    margin: 40px;
+    min-height: 300px;
+}
+
+.tdContainer {
+    color: white;
+    animation: load-board 1000ms;
+    background-color: rgb(127, 141, 158);
+    border: 1px solid rgb(1, 22, 56);
+    min-height: 100px;
+    width: 250px;
+    padding: 10px;
+    height: 75px;
+    font-size: 13px;
+    text-align: center;
+    z-index: 3;
+    transition: height 100ms;
+}
+
+.tdContainer:hover {
+    background-color: rgb(54, 65, 86);
+}
+
+.tdContainer.clicked {
+
+    border: none;
+    background-color: rgba(54, 65, 86, 0);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%) scale(1.5);
+    font-size: 18px;
+    padding: 0px;
+    text-align: center;
+}
+
+.tdContainer.clicked>.question {
+    min-height: 120px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(54, 65, 86, 0.832);
+    backdrop-filter: blur(2px);
+}
+
+
+.tdContainer td {
+    font-family: 'Crushed', cursive;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.question {
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+td.value {
+    color: rgb(30, 39, 60);
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    pointer-events: none;
+    font-size: 2rem;
+    /* background-color: brown; */
+}
+
+
+
+td.answer {
+    font-size: 30px;
+    pointer-events: none;
+    /* opacity: 0; */
+}
+
+.buttonContainer {
+    justify-content: space-around;
+    display: flex;
+
+}
+
+.buttonContainer button {
+    font-family: 'Crushed', cursive;
+    background-color: white;
+    border: none;
+    padding: 5px;
+    width: 50%;
+}
+
+button.answerbtn {
+    border-bottom-left-radius: 10px;
+}
+
+button.closebtn {
+    border-bottom-right-radius: 10px;
+}
+
+.buttonContainer button:hover {
+    color: white;
+    background-color: rgb(54, 65, 86);
+}
